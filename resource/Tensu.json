@@ -1,0 +1,106 @@
+{
+  "1han": {
+    "20fu": {
+      "ron": {"parent": "0", "child": "0"},
+      "tsumo": {"parent": "0", "child": "0"}
+    },
+    "30fu": {
+      "ron": {"parent": "1500", "child": "1000"},
+      "tsumo": {"parent": "500 ALL", "child": "300/500"}
+    },
+    "40fu": {
+      "ron": {"parent": "2000", "child": "1300"},
+      "tsumo": {"parent": "700 ALL", "child": "400/700"}
+    },
+    "50fu": {
+      "ron": {"parent": "2400", "child": "1600"},
+      "tsumo": {"parent": "800 ALL", "child": "400/800"}
+    },
+    "60fu": {
+      "ron": {"parent": "2900", "child": "2000"},
+      "tsumo": {"parent": "1000 ALL", "child": "500/1000"}
+    },
+    "70fu": {
+      "ron": {"parent": "3400", "child": "2300"},
+      "tsumo": {"parent": "1200 ALL", "child": "600/1200"}
+    }
+  },
+  "2han": {
+    "20fu": {
+      "ron": {"parent": "2000", "child": "1300"},
+      "tsumo": {"parent": "700 ALL", "child": "400/700"}
+    },
+    "30fu": {
+      "ron": {"parent": "2900", "child": "2000"},
+      "tsumo": {"parent": "1000 ALL", "child": "500/1000"}
+    },
+    "40fu": {
+      "ron": {"parent": "3900", "child": "2600"},
+      "tsumo": {"parent": "1300 ALL", "child": "700/1300"}
+    },
+    "50fu": {
+      "ron": {"parent": "4800", "child": "3200"},
+      "tsumo": {"parent": "1600 ALL", "child": "800/1600"}
+    },
+    "60fu": {
+      "ron": {"parent": "5800", "child": "3900"},
+      "tsumo": {"parent": "2000 ALL", "child": "1000/2000"}
+    },
+    "70fu": {
+      "ron": {"parent": "6800", "child": "4500"},
+      "tsumo": {"parent": "2300 ALL", "child": "1200/2300"}
+    }
+  },
+  "3han": {
+    "20fu": {
+      "ron": {"parent": "3900", "child": "2600"},
+      "tsumo": {"parent": "1300 ALL", "child": "700/1300"}
+    },
+    "30fu": {
+      "ron": {"parent": "5800", "child": "3900"},
+      "tsumo": {"parent": "2000 ALL", "child": "1000/2000"}
+    },
+    "40fu": {
+      "ron": {"parent": "7700", "child": "5200"},
+      "tsumo": {"parent": "2600 ALL", "child": "1300/2600"}
+    },
+    "50fu": {
+      "ron": {"parent": "9600", "child": "6400"},
+      "tsumo": {"parent": "3200 ALL", "child": "1600/3200"}
+    },
+    "60fu": {
+      "ron": {"parent": "11600", "child": "7700"},
+      "tsumo": {"parent": "3900 ALL", "child": "2000/3900"}
+    },
+    "70fu": {
+      "ron": {"parent": "12000", "child": "8000"},
+      "tsumo": {"parent": "4000 ALL", "child": "2000/4000"}
+    }
+  },
+  "4han": {
+    "20fu": {
+      "ron": {"parent": "7700", "child": "5200"},
+      "tsumo": {"parent": "2600 ALL", "child": "1300/2600"}
+    },
+    "30fu": {
+      "ron": {"parent": "11600", "child": "7700"},
+      "tsumo": {"parent": "3900 ALL", "child": "2000/3900"}
+    },
+    "40fu": {
+      "ron": {"parent": "12000", "child": "8000"},
+      "tsumo": {"parent": "4000 ALL", "child": "2000/4000"}
+    },
+    "50fu": {
+      "ron": {"parent": "12000", "child": "8000"},
+      "tsumo": {"parent": "4000 ALL", "child": "2000/4000"}
+    },
+    "60fu": {
+      "ron": {"parent": "12000", "child": "8000"},
+      "tsumo": {"parent": "4000 ALL", "child": "2000/4000"}
+    },
+    "70fu": {
+      "ron": {"parent": "12000", "child": "8000"},
+      "tsumo": {"parent": "4000 ALL", "child": "2000/4000"}
+    }
+  }
+}
