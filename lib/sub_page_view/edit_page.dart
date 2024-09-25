@@ -1,8 +1,8 @@
-import 'dart:convert';
-
-import 'package:augsix/sub_page_view/agari_check_page.dart';
+import 'package:augsix/sub_page_view/fukeisan_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/utils.dart';
 
 final Color? BACKGROUND_COLOR = Colors.green[100];
 
@@ -11,42 +11,7 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPage extends State<EditPage> {
-  List<dynamic> json = [
-    {"name": "一萬", "no":  0, "type": 0, "number": 1, "image": "resource/pai-images/man1-66-90-l.png"},
-    {"name": "ニ萬", "no":  1, "type": 0, "number": 2, "image": "resource/pai-images/man2-66-90-l.png"},
-    {"name": "三萬", "no":  2, "type": 0, "number": 3, "image": "resource/pai-images/man3-66-90-l.png"},
-    {"name": "四萬", "no":  3, "type": 0, "number": 4, "image": "resource/pai-images/man4-66-90-l.png"},
-    {"name": "五萬", "no":  4, "type": 0, "number": 5, "image": "resource/pai-images/man5-66-90-l.png"},
-    {"name": "六萬", "no":  5, "type": 0, "number": 6, "image": "resource/pai-images/man6-66-90-l.png"},
-    {"name": "七萬", "no":  6, "type": 0, "number": 7, "image": "resource/pai-images/man7-66-90-l.png"},
-    {"name": "八萬", "no":  7, "type": 0, "number": 8, "image": "resource/pai-images/man8-66-90-l.png"},
-    {"name": "九萬", "no":  8, "type": 0, "number": 9, "image": "resource/pai-images/man9-66-90-l.png"},
-    {"name": "一索", "no":  9, "type": 1, "number": 1, "image": "resource/pai-images/sou1-66-90-l.png"},
-    {"name": "ニ索", "no": 10, "type": 1, "number": 2, "image": "resource/pai-images/sou2-66-90-l.png"},
-    {"name": "三索", "no": 11, "type": 1, "number": 3, "image": "resource/pai-images/sou3-66-90-l.png"},
-    {"name": "四索", "no": 12, "type": 1, "number": 4, "image": "resource/pai-images/sou4-66-90-l.png"},
-    {"name": "五索", "no": 13, "type": 1, "number": 5, "image": "resource/pai-images/sou5-66-90-l.png"},
-    {"name": "六索", "no": 14, "type": 1, "number": 6, "image": "resource/pai-images/sou6-66-90-l.png"},
-    {"name": "七索", "no": 15, "type": 1, "number": 7, "image": "resource/pai-images/sou7-66-90-l.png"},
-    {"name": "八索", "no": 16, "type": 1, "number": 8, "image": "resource/pai-images/sou8-66-90-l.png"},
-    {"name": "九索", "no": 17, "type": 1, "number": 9, "image": "resource/pai-images/sou9-66-90-l.png"},
-    {"name": "一筒", "no": 18, "type": 2, "number": 1, "image": "resource/pai-images/pin1-66-90-l.png"},
-    {"name": "ニ筒", "no": 19, "type": 2, "number": 2, "image": "resource/pai-images/pin2-66-90-l.png"},
-    {"name": "三筒", "no": 20, "type": 2, "number": 3, "image": "resource/pai-images/pin3-66-90-l.png"},
-    {"name": "四筒", "no": 21, "type": 2, "number": 4, "image": "resource/pai-images/pin4-66-90-l.png"},
-    {"name": "五筒", "no": 22, "type": 2, "number": 5, "image": "resource/pai-images/pin5-66-90-l.png"},
-    {"name": "六筒", "no": 23, "type": 2, "number": 6, "image": "resource/pai-images/pin6-66-90-l.png"},
-    {"name": "七筒", "no": 24, "type": 2, "number": 7, "image": "resource/pai-images/pin7-66-90-l.png"},
-    {"name": "八筒", "no": 25, "type": 2, "number": 8, "image": "resource/pai-images/pin8-66-90-l.png"},
-    {"name": "九筒", "no": 26, "type": 2, "number": 9, "image": "resource/pai-images/pin9-66-90-l.png"},
-    {"name": "白" , "no": 27, "type": 3, "number": 0, "image": "resource/pai-images/ji6-66-90-l.png"},
-    {"name": "發" , "no": 28, "type": 3, "number": 0, "image": "resource/pai-images/ji5-66-90-l.png"},
-    {"name": "中" , "no": 29, "type": 3, "number": 0, "image": "resource/pai-images/ji7-66-90-l.png"},
-    {"name": "東" , "no": 30, "type": 4, "number": 0, "image": "resource/pai-images/ji1-66-90-l.png"},
-    {"name": "南" , "no": 31, "type": 4, "number": 0, "image": "resource/pai-images/ji2-66-90-l.png"},
-    {"name": "西" , "no": 32, "type": 4, "number": 0, "image": "resource/pai-images/ji3-66-90-l.png"},
-    {"name": "北" , "no": 33, "type": 4, "number": 0, "image": "resource/pai-images/ji4-66-90-l.png"}
-  ];
+  List<dynamic> json = haiList;
   late List<Widget> images;
   late List<Widget> manzuImages;
   late List<Widget> pinzuImages;
@@ -58,7 +23,6 @@ class _EditPage extends State<EditPage> {
   @override
   void initState() {
     super.initState();
-    var hai = jsonDecode(jsonEncode(json));
     images = json.map((element) => GestureDetector(
       child: Image.asset(element["image"]),
       onTap: () => setState(() => addTehai(element)),
@@ -84,7 +48,7 @@ class _EditPage extends State<EditPage> {
             ),
             Container(
               child: MaterialButton(
-                  onPressed: _isDisabled ? () => Navigator.push(context, MaterialPageRoute(builder: (context) => AgariCheckPage(tehai))) : null,
+                  onPressed: _isDisabled ? () => Navigator.push(context, MaterialPageRoute(builder: (context) => FukeisanPage(tehai))) : null,
                   child: _isDisabled
                       ? Text("上がりチェック", style: TextStyle(fontSize: 20,fontFamily: "OptFont",color: Colors.white,),)
                       : Text("牌が少ないよ", style: TextStyle(fontSize: 20,fontFamily: "OptFont",),),
