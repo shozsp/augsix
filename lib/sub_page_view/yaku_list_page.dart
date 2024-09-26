@@ -11,15 +11,15 @@ class YakuListPage extends StatelessWidget {
   }
 
   FutureBuilder<dynamic> creating(BuildContext context) {
-    dynamic json = loadJson("resource/Yaku.json");
+    dynamic json = LoadJson("resource/Yaku.json");
     return FutureBuilder<dynamic>(
       future: json,
       builder: (context, yakuJson) {
         if (yakuJson.hasData) {
           List<Widget> list = [];
           for (String yaku in yakuJson.data["役"].keys){
-            String explain = "${hansuTextCheck(yakuJson.data["役"][yaku]["翻数"])}";
-            String naki = makeNakiText(
+            String explain = "${HansuTextCheck(yakuJson.data["役"][yaku]["翻数"])}";
+            String naki = MakeNakiText(
                 yakuJson.data["役"][yaku]["鳴きあり"],
                 yakuJson.data["役"][yaku]["翻数"] - yakuJson.data["役"][yaku]["減点"]
             );

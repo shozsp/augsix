@@ -8,7 +8,7 @@ import 'dart:convert';
 
 import '../sub_page_view/edit_page.dart';
 
-final List<dynamic> haiList = [
+final List<dynamic> HaiList = [
   {"name": "一萬", "no":  0, "type": "萬子", "number": 1, "image": "resource/pai-images/man1-66-90-l.png"},
   {"name": "ニ萬", "no":  1, "type": "萬子", "number": 2, "image": "resource/pai-images/man2-66-90-l.png"},
   {"name": "三萬", "no":  2, "type": "萬子", "number": 3, "image": "resource/pai-images/man3-66-90-l.png"},
@@ -45,11 +45,11 @@ final List<dynamic> haiList = [
   {"name": "北" , "no": 33, "type": "風牌", "number": 0, "image": "resource/pai-images/ji4-66-90-l.png"}
 ];
 
-Future<dynamic> loadJson(String path) async {
+Future<dynamic> LoadJson(String path) async {
   return jsonDecode(await rootBundle.loadString(path));
 }
 
-Widget? selectPage(BuildContext context, String name) {
+Widget? SelectPage(BuildContext context, String name) {
   switch(name){
     case "持ち点管理":
       return CalcPage();
@@ -66,7 +66,7 @@ Widget? selectPage(BuildContext context, String name) {
   }
 }
 
-String hansuTextCheck(int hansu) {
+String HansuTextCheck(int hansu) {
   if(hansu==13){
     return "役満";
   } else if(hansu==99) {
@@ -76,23 +76,23 @@ String hansuTextCheck(int hansu) {
   }
 }
 
-String makeNakiText(String isNakiAri, int hansu) {
+String MakeNakiText(String isNakiAri, int hansu) {
   if (isNakiAri=="0"){
     return "鳴き: なし";
   } else {
-    return "鳴き　　: あり\n鳴きあり: ${hansuTextCheck(hansu)}";
+    return "鳴き　　: あり\n鳴きあり: ${HansuTextCheck(hansu)}";
   }
 }
 
-bool agariCheck(List<dynamic> tehai) {
-  List<dynamic> tmp = juntsuCheck(tehai);
-  tmp = kotsuCheck(tmp);
-  return atamaCheck(tmp) || chiToitsuCheck(tehai) || kokushiCheck(tehai);
+bool AgariCheck(List<dynamic> tehai) {
+  List<dynamic> tmp = JuntsuCheck(tehai);
+  tmp = KotsuCheck(tmp);
+  return AtamaCheck(tmp) || ChiToitsuCheck(tehai) || kokushiCheck(tehai);
 }
 
 bool kokushiCheck(List<dynamic> tehaiList) {
   List<dynamic> tmp = tehaiList.toList();
-  List<dynamic> kokushiTemplate = haiList.where((e) => e["number"] == 1 || e["number"] == 9 || e["type"] == "三元牌" || e["type"] == "風牌").toList();
+  List<dynamic> kokushiTemplate = HaiList.where((e) => e["number"] == 1 || e["number"] == 9 || e["type"] == "三元牌" || e["type"] == "風牌").toList();
   if(tmp.toSet().length == 13) {
     for(dynamic kokushiHai in kokushiTemplate) {
       tmp.remove(kokushiHai);
@@ -104,7 +104,7 @@ bool kokushiCheck(List<dynamic> tehaiList) {
   return false;
 }
 
-bool chiToitsuCheck(List<dynamic> tehaiList) {
+bool ChiToitsuCheck(List<dynamic> tehaiList) {
   for(dynamic tehai in tehaiList.toSet()) {
     if(tehaiList.where((e) => e == tehai).length == 2) {
       continue;
@@ -114,14 +114,14 @@ bool chiToitsuCheck(List<dynamic> tehaiList) {
   }
   return tehaiList.toSet().length == 7;
 }
-bool atamaCheck(List<dynamic> tehai) {
+bool AtamaCheck(List<dynamic> tehai) {
   if(tehai.toSet().length == 1) {
     return tehai.length == 2;
   }
   return false;
 }
 
-List<dynamic> kotsuCheck(List<dynamic> tehaiList) {
+List<dynamic> KotsuCheck(List<dynamic> tehaiList) {
   List<dynamic> tmp = tehaiList.toList();
   Set<dynamic> tehaiSet = tehaiList.toSet();
   for(dynamic tehai in tehaiSet) {
@@ -132,11 +132,11 @@ List<dynamic> kotsuCheck(List<dynamic> tehaiList) {
   return tmp;
 }
 
-List<dynamic> juntsuCheck(List<dynamic> tehaiList) {
+List<dynamic> JuntsuCheck(List<dynamic> tehaiList) {
   List<dynamic> tmp = tehaiList.toList();
-  List<dynamic> manzuList = haiList.where((e) => e["type"] == "萬子").toList();
-  List<dynamic> pinzuList = haiList.where((e) => e["type"] == "筒子").toList();
-  List<dynamic> souzuList = haiList.where((e) => e["type"] == "索子").toList();
+  List<dynamic> manzuList = HaiList.where((e) => e["type"] == "萬子").toList();
+  List<dynamic> pinzuList = HaiList.where((e) => e["type"] == "筒子").toList();
+  List<dynamic> souzuList = HaiList.where((e) => e["type"] == "索子").toList();
 
   bool loop = true;
   for(int i = 0; i <= 9-3; i++) {

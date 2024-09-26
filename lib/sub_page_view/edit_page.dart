@@ -1,3 +1,4 @@
+import 'package:augsix/model/app_data.dart';
 import 'package:augsix/sub_page_view/fukeisan_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +12,13 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPage extends State<EditPage> {
-  List<dynamic> json = haiList;
+  List<dynamic> json = HaiList;
   late List<Widget> images;
   late List<Widget> manzuImages;
   late List<Widget> pinzuImages;
   late List<Widget> souzuImages;
   late List<Widget> jihaiImages;
   late List<Widget> tehaiImages;
-  List<dynamic> tehai = [];
-  bool _isDisabled = false;
   @override
   void initState() {
     super.initState();
@@ -48,8 +47,8 @@ class _EditPage extends State<EditPage> {
             ),
             Container(
               child: MaterialButton(
-                  onPressed: _isDisabled ? () => Navigator.push(context, MaterialPageRoute(builder: (context) => FukeisanPage(tehai))) : null,
-                  child: _isDisabled
+                  onPressed: appData.agariCheckButtonIsDisabled ? () => Navigator.push(context, MaterialPageRoute(builder: (context) => FukeisanPage(appData.tehai))) : null,
+                  child: appData.agariCheckButtonIsDisabled
                       ? Text("上がりチェック", style: TextStyle(fontSize: 20,fontFamily: "OptFont",color: Colors.white,),)
                       : Text("牌が少ないよ", style: TextStyle(fontSize: 20,fontFamily: "OptFont",),),
                   shape: StadiumBorder(),
@@ -65,7 +64,7 @@ class _EditPage extends State<EditPage> {
                     autoPlay: false,
                     viewportFraction: 0.25,
                   ),
-                  items: tehai.map((element) => GestureDetector(child: Image.asset(element["image"]), onTap: () => setState(() => removeFromTehai(element["no"])),)).toList(),
+                  items: appData.tehai.map((element) => GestureDetector(child: Image.asset(element["image"]), onTap: () => setState(() => removeFromTehai(element["no"])),)).toList(),
                 )
             ),
             Container(
@@ -151,26 +150,26 @@ class _EditPage extends State<EditPage> {
   }
 
   void addTehai(dynamic hai) {
-    if(tehai.length < 18) {
-      int length = tehai.where((element) => element["no"] == hai["no"]).toList().length;
+    if(appData.tehai.length < 18) {
+      int length = appData.tehai.where((element) => element["no"] == hai["no"]).toList().length;
       if (length < 4) {
-        tehai.add(hai);
-        tehai.sort((a, b) => a["no"] < b["no"] ? -1 : 1);
+        appData.tehai.add(hai);
+        appData.tehai.sort((a, b) => a["no"] < b["no"] ? -1 : 1);
       }
     }
-    if (tehai.length >= 14) {
-      _isDisabled = true;
+    if (appData.tehai.length >= 14) {
+      appData.agariCheckButtonIsDisabled = true;
     } else {
-      _isDisabled = false;
+      appData.agariCheckButtonIsDisabled = false;
     }
   }
 
   void removeFromTehai(int no) {
-    tehai.remove(tehai.firstWhere((element) => element["no"]==no));
-    if (tehai.length >= 14) {
-      _isDisabled = true;
+    appData.tehai.remove(appData.tehai.firstWhere((element) => element["no"]==no));
+    if (appData.tehai.length >= 14) {
+      appData.agariCheckButtonIsDisabled = true;
     } else {
-      _isDisabled = false;
+      appData.agariCheckButtonIsDisabled = false;
     }
   }
 }

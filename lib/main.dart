@@ -130,7 +130,7 @@ class _SidebarPageState extends State<SidebarPage> {
           angle: 0,
           child: Transform.translate(
             offset: Offset(0, 0),
-            child: selectPage(context, _headline)
+            child: SelectPage(context, _headline)
           ),
         ),
       ),

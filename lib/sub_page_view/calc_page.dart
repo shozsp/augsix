@@ -1,3 +1,4 @@
+import 'package:augsix/model/app_data.dart';
 import 'package:augsix/model/player_score.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,21 +12,20 @@ class CalcPage extends StatefulWidget {
 
 class _CalcPage extends State<CalcPage> {
   late List<Widget> list = [];
-  late List<PlayerScore> players = [];
   late TextEditingController _tmpScore = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     for(int i = 1; i <= 4; i++) {
-      players.add(PlayerScore("Player${i}", 25000));
-      list.add(players[i-1].toCard());
+      appData.players.add(PlayerScore("Player${i}", 25000));
+      list.add(appData.players[i-1].toCard());
     }
     _tmpScore.text = "";
   }
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    // var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: BACKGROUND_COLOR,
       body: Column(
@@ -174,21 +174,21 @@ class _CalcPage extends State<CalcPage> {
 
   void pushButton(String input) {
     _tmpScore.text = _tmpScore.text + input;
-    players.forEach((element) => element.setInput = _tmpScore.text);
+    appData.players.forEach((element) => element.setInput = _tmpScore.text);
   }
 
   void clearText() {
     _tmpScore.text = "";
-    players.forEach((element) => element.setInput = "0");
+    appData.players.forEach((element) => element.setInput = "0");
   }
   
   void backspace() {
     if(_tmpScore.text.length > 0) {
       _tmpScore.text = _tmpScore.text.substring(0, _tmpScore.text.length-1);
       if(_tmpScore.text.isNotEmpty) {
-        players.forEach((element) => element.setInput = _tmpScore.text);
+        appData.players.forEach((element) => element.setInput = _tmpScore.text);
       } else {
-        players.forEach((element) => element.setInput = "0");
+        appData.players.forEach((element) => element.setInput = "0");
       }
     }
   }

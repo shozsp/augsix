@@ -18,7 +18,7 @@ class _FukeisanPage extends State<FukeisanPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [Text(agariCheck(widget.tehai) ? "あがり！！！！！！！！！" : "上がってないよ。")],
+        children: [Text(AgariCheck(widget.tehai) ? "あがり！！！！！！！！！" : "上がってないよ。")],
       ),
     );
   }
