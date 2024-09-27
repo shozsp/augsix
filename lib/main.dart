@@ -61,21 +61,21 @@ class _SidebarPageState extends State<SidebarPage> {
         icon: Icons.edit_square,
         onPressed: () => setState(() => _headline = '手牌編集'),
       ),
-      CollapsibleItem(
-        text: '上がりチェック',
-        icon: Icons.fact_check,
-        onPressed: () => setState(() => _headline = '上がりチェック'),
-      ),
-      CollapsibleItem(
-        text: '点数計算',
-        icon: Icons.functions,
-        onPressed: () => setState(() => _headline = '点数計算'),
-      ),
-      CollapsibleItem(
-        text: 'ライセンス',
-        icon: Icons.card_membership,
-        onPressed: () => setState(() => _headline = 'ライセンス'),
-      )
+      // CollapsibleItem(
+      //   text: '上がりチェック',
+      //   icon: Icons.fact_check,
+      //   onPressed: () => setState(() => _headline = '上がりチェック'),
+      // ),
+      // CollapsibleItem(
+      //   text: '点数計算',
+      //   icon: Icons.functions,
+      //   onPressed: () => setState(() => _headline = '点数計算'),
+      // ),
+      // CollapsibleItem(
+      //   text: 'ライセンス',
+      //   icon: Icons.card_membership,
+      //   onPressed: () => setState(() => _headline = 'ライセンス'),
+      // )
     ];
   }
 

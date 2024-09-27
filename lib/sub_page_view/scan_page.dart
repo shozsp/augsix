@@ -45,6 +45,8 @@ class _ScanPage extends State<ScanPage> {
                       _controller!,
                     ),
                     FloatingActionButton(onPressed: () async {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('実装中だよ。', style: TextStyle(fontFamily: "OptFonts"),)));
                     }, child: const Icon(Icons.photo_camera),),
                   ],
                 ),

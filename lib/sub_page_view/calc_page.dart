@@ -201,19 +201,16 @@ class _CalcPage extends State<CalcPage> {
   }
 
   void changeTsumo() {
-    _tmpScore.text = "4321/1234";
     ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('実装中だよ。', style: TextStyle(fontFamily: "OptFonts"),)));
   }
 
   void changeChild() {
-    _tmpScore.text = "4321";
     ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('実装中だよ。', style: TextStyle(fontFamily: "OptFonts"),)));
   }
 
   void changeParent() {
-    _tmpScore.text = "4321";
     ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('実装中だよ。', style: TextStyle(fontFamily: "OptFonts"),)));
   }

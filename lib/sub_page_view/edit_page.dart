@@ -66,8 +66,8 @@ class _EditPage extends State<EditPage> {
               ),
               items: appData.tehai.map((element) => GestureDetector(
                 child: Image.asset(element["image"]),
-                onTap: () => setState(() => removeFromTehai(element["no"])),
-                onDoubleTap: () => setState(() => ChangeHaiImage(element)),
+                onVerticalDragEnd: (_) => setState(() => removeFromTehai(element["no"])),
+                onTap: () => setState(() => ChangeHaiImage(element)),
               )).toList(),
             ),
             Container(
@@ -151,6 +151,9 @@ class _EditPage extends State<EditPage> {
       if (length < 4) {
         appData.tehai.add(copy);
         appData.tehai.sort((a, b) => a["no"] < b["no"] ? -1 : 1);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('4枚以上設定できないよ。\n削除する場合は上にスワイプしてね。', style: TextStyle(fontFamily: "OptFonts"),)));
       }
     }
     if (appData.tehai.length >= 14) {
