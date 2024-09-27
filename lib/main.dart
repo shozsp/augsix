@@ -2,9 +2,11 @@ import 'package:augsix/utils/utils.dart';
 import 'package:collapsible_sidebar/collapsible_sidebar.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,13 +14,15 @@ class MyApp extends StatelessWidget {
       title: 'augsix',
       home: Scaffold(
         backgroundColor: Colors.green[100],
-        body: SidebarPage(),
+        body: const SidebarPage(),
       ),
     );
   }
 }
 
 class SidebarPage extends StatefulWidget {
+  const SidebarPage({super.key});
+
   @override
   _SidebarPageState createState() => _SidebarPageState();
 }
@@ -88,7 +92,7 @@ class _SidebarPageState extends State<SidebarPage> {
         title: 'まーじゃんつーる',
         onTitleTap: () {
           ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('使ってくれてありがとう！', style: TextStyle(fontFamily: "OptFonts"),)));
+              const SnackBar(content: Text('使ってくれてありがとう！', style: TextStyle(fontFamily: "OptFonts"),)));
         },
         body: _body(size, context),
         backgroundColor: Colors.brown,
@@ -96,13 +100,13 @@ class _SidebarPageState extends State<SidebarPage> {
         selectedTextColor: Colors.limeAccent,
         selectedIconColor: Colors.lightGreenAccent,
         customItemOffsetX: 10,
-        textStyle: TextStyle(fontSize: 18, fontFamily: "OptFonts"),
-        titleStyle: TextStyle(
+        textStyle: const TextStyle(fontSize: 18, fontFamily: "OptFonts"),
+        titleStyle: const TextStyle(
             fontSize: 20,
             fontFamily: "OptFonts",
             fontWeight: FontWeight.bold),
-        toggleTitleStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "OptFonts"),
-        sidebarBoxShadow: [
+        toggleTitleStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "OptFonts"),
+        sidebarBoxShadow: const [
           BoxShadow(
             color: Colors.brown,
             blurRadius: 20,
@@ -124,12 +128,12 @@ class _SidebarPageState extends State<SidebarPage> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Center(
         child: Transform.rotate(
           angle: 0,
           child: Transform.translate(
-            offset: Offset(0, 0),
+            offset: const Offset(0, 0),
             child: SelectPage(context, _headline)
           ),
         ),

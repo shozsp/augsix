@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class AgariCheckPage extends StatefulWidget {
   final List<dynamic> tehai;
+  @override
   _AgariCheckPage createState() => _AgariCheckPage();
-  AgariCheckPage(this.tehai);
+  const AgariCheckPage(this.tehai, {super.key});
 }
 
 class _AgariCheckPage extends State<AgariCheckPage> {

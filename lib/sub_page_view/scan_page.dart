@@ -1,10 +1,13 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
+// ignore: non_constant_identifier_names
 final Color? BACKGROUND_COLOR = Colors.green[100];
 
 class ScanPage extends StatefulWidget {
+  const ScanPage({super.key});
+
+  @override
   _ScanPage createState() => _ScanPage();
 }
 
@@ -42,17 +45,16 @@ class _ScanPage extends State<ScanPage> {
                       _controller!,
                     ),
                     FloatingActionButton(onPressed: () async {
-                      final image = await _controller!.takePicture();
-                    }, child: Icon(Icons.photo_camera),),
+                    }, child: const Icon(Icons.photo_camera),),
                   ],
                 ),
               );
             } else {
-              return Text("カメラが見つかりません。");
+              return const Text("カメラが見つかりません。");
             }
           });
     } catch(e) {
-      return Text("カメラが見つかりません。");
+      return const Text("カメラが見つかりません。");
     }
   }
   @override

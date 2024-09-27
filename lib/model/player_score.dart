@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlayerScore {
@@ -6,7 +5,7 @@ class PlayerScore {
   late int _score;
   late int _input = 0;
   late List<int> _scoreHistory = [];
-  late TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller = TextEditingController();
 
   PlayerScore(String name, int score) {
     _name = name;
@@ -31,32 +30,30 @@ class PlayerScore {
 
   Card toCard() {
     return Card(
-      child: Container(
-        child: ListTile(
-          title: Text(_name),
-          // leading: IconButton(onPressed: () => changePlayerName(), icon: Icon(Icons.edit_note)),
-          subtitle: TextFormField(controller: _controller, enabled: false,),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(child: IconButton(onPressed: () => addScore(), icon: Icon(Icons.add), iconSize: 20, style: TextButton.styleFrom(backgroundColor: Colors.red[200],), padding: EdgeInsets.zero,), height: 20,),
-              Container(child: IconButton(onPressed: () => minusScore(), icon: Icon(Icons.remove), iconSize: 20, style: TextButton.styleFrom(backgroundColor: Colors.blue[100],), padding: EdgeInsets.zero,), height: 20,margin: EdgeInsets.only(top: 8),),
-            ],
-          ),
+      child: ListTile(
+        title: Text(_name),
+        // leading: IconButton(onPressed: () => changePlayerName(), icon: Icon(Icons.edit_note)),
+        subtitle: TextFormField(controller: _controller, enabled: false,),
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 20,child: IconButton(onPressed: () => addScore(), icon: const Icon(Icons.add), iconSize: 20, style: TextButton.styleFrom(backgroundColor: Colors.red[200],), padding: EdgeInsets.zero,),),
+            Container(height: 20,margin: const EdgeInsets.only(top: 8),child: IconButton(onPressed: () => minusScore(), icon: const Icon(Icons.remove), iconSize: 20, style: TextButton.styleFrom(backgroundColor: Colors.blue[100],), padding: EdgeInsets.zero,),),
+          ],
         ),
       )
     );
   }
 
   void addScore() {
-    this._score += this._input;
-    this._controller.text = this._score.toString();
+    _score += _input;
+    _controller.text = _score.toString();
     addScoreHistory(_score.toString());
   }
 
   void minusScore() {
-    this._score -= this._input;
-    this._controller.text = this._score.toString();
+    _score -= _input;
+    _controller.text = _score.toString();
     addScoreHistory(_score.toString());
   }
 

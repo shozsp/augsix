@@ -18,7 +18,7 @@ class YakuListPage extends StatelessWidget {
         if (yakuJson.hasData) {
           List<Widget> list = [];
           for (String yaku in yakuJson.data["役"].keys){
-            String explain = "${HansuTextCheck(yakuJson.data["役"][yaku]["翻数"])}";
+            String explain = HansuTextCheck(yakuJson.data["役"][yaku]["翻数"]);
             String naki = MakeNakiText(
                 yakuJson.data["役"][yaku]["鳴きあり"],
                 yakuJson.data["役"][yaku]["翻数"] - yakuJson.data["役"][yaku]["減点"]
@@ -26,8 +26,8 @@ class YakuListPage extends StatelessWidget {
             list.add(Card(
               color: Colors.grey[180],
               child: ListTile(
-                title: Text(yaku, style: TextStyle(fontFamily: "OptFonts")),
-                subtitle: Text(explain, style: TextStyle(fontFamily: "OptFonts")),
+                title: Text(yaku, style: const TextStyle(fontFamily: "OptFonts")),
+                subtitle: Text(explain, style: const TextStyle(fontFamily: "OptFonts")),
                 trailing: Text(naki),
               ),
             ));
